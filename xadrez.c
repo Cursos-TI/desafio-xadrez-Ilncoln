@@ -59,17 +59,19 @@ int main() {
     printf("  \n");
     printf("O cavalo salta para:\n");
 
-   for (int movimentocavalo = 1; movimentocavalo <= 3; movimentocavalo++)
-    {
-        if(movimentocavalo == 1 || movimentocavalo == 2){
-            printf("Cima\n");
-        }    
-        else if(movimentocavalo == 3){
-            printf("Direita\n");
-        
+   int movimentocavalo = 0;
+    
+    while (movimentocavalo <=3)
+    {   if(movimentocavalo == 1 || movimentocavalo == 2){
+        printf("Cima\n");
         }
+
+        for (; movimentocavalo == 3; movimentocavalo++)
+        {
+            printf("Direita\n");
+        }
+        movimentocavalo++;  
     }
-   
 
 
     return 0;
