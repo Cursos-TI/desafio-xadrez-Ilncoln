@@ -1,52 +1,77 @@
 #include <stdio.h>
 
-int main() {
+//Movimento da torre
 
-    //Variaveis
-
-    int torre, bispo = 0, rainha = 0;
-
-    //Movimento da torre
-    printf("Torre se move para: \n");
-
-    for ( torre = 0; torre < 5; torre++)
-    {printf("- Direita ");}
-
-    //Movimento do bispo
-    printf("\nBispo se move para: \n");
-
-    while (bispo < 5)
-    {printf(" - Cima");
-     printf(" - Direita");
-     bispo++;   
+void movertorre(int casas) {
+    if ( casas > 0){
+        printf("Direita\n");
+        movertorre(casas - 1);
     }
 
-    //Movimento da rainha
-    printf("\nRainha se move pra: \n");
+}
 
-    do
-    {printf("- Esquerda ");
-      rainha++;  
-    } while (rainha < 8);
+//Movimnento da rainha
+
+void moverrainha(int casas) {
+    if (casas > 0){
+        printf("Esquerda\n");
+        moverrainha(casas - 1);
+    }
+    
+}
+
+//Movimento do bispo
+
+
+void moverbispo(int casas) {
+    int movimentobispo = 1;
+    if(casas > 0){
+    while (movimentobispo--)
+    {
+        printf("Cima\n");
+
+        for (int i = 0; i < 1; i++)
+        {
+            printf("Direita\n");
+        }  
+    }
+    
+    
+    moverbispo(casas - 1);
+    }
+}
+
+int main() {
+    printf("A torre se move para:\n");
+    movertorre(5);
+
+    printf("  \n");
+
+    printf("A rainha se move para:\n");
+    moverrainha(8);
+
+    printf("  \n");
+
+    printf("O bispo se move para:\n");
+    moverbispo(5);
 
     //Movimento do cavalo
-    printf("\nCavalo salta para: \n");
+    printf("  \n");
+    printf("O cavalo salta para:\n");
 
-    int cavalo, movimento = 0;
-
-    for(cavalo = 0; cavalo == movimento; cavalo++){
-
-        while (movimento < 2)
-        {
-            printf("Baixo\n");
-            movimento++;
+   for (int movimentocavalo = 1; movimentocavalo <= 3; movimentocavalo++)
+    {
+        if(movimentocavalo == 1 || movimentocavalo == 2){
+            printf("Cima\n");
+        }    
+        else if(movimentocavalo == 3){
+            printf("Direita\n");
+        
         }
-        printf("Esquerda\n");
     }
+   
 
 
-    
-    
     return 0;
 
 }
